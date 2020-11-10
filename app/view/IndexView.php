@@ -1,6 +1,6 @@
 <main>
 <?php
-	$this->generateCalendar();
+	echo $this->renderCalendar();
 ?>
 
 
