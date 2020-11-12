@@ -2,3 +2,36 @@ body {
 	background-color: #160A41;
 	color: #fff;
 }
+
+.calendar {
+	min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar--center {
+	background-color:#220F61;
+	width: max-content;
+	padding: 40px;
+}
+
+form {
+}
+form div{
+	display: flex;
+}
+
+
+form div ul{
+	text-align: center;
+	min-height: 500px;
+}
+
+form div ul li{
+	margin: 33px;
+	font-size: 18px;
+	text-transform: uppercase;
+}
+form span button{
+}

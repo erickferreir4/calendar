@@ -2,11 +2,19 @@
 
 namespace app\lib;
 
+/**
+ *
+ * Calendar
+ *
+ */
 class Calendar
 {
 	protected $matrix;
 	protected $init_day;
 	protected $last_day;
+	protected $month;
+	protected $month_num;
+	protected $year;
 
 	public function __construct()
 	{
@@ -25,10 +33,16 @@ class Calendar
 	{
 		$this->init_day = intval(date('N', mktime(0, 0, 0, $month, 1, $year)));
 		$this->last_day = intval(date('t', mktime(0, 0, 0, $month, 1, $year)));
+		$this->month = date('F', mktime(0, 0, 0, $month, 10));
+		$this->month_num = $month;
+		$this->year = $year;
 	}
 
 	public function generateCalendar()
 	{
+		if($this->init_day === 7){
+			$this->init_day = 0;
+		}
 		//void column
 		for($x = 0; $x < $this->init_day; $x++){
 			$this->matrix[$x][] = '0';  
@@ -47,15 +61,23 @@ class Calendar
 
 	public function getCalendar()
 	{
-		$html = '';
+		$html = file_get_contents(__DIR__ . '/../templates/ul.html');
+		$alldays = '';
+
+
 		foreach($this->matrix as $key => $days){
-			$html .= '<ul>';
+			$alldays .= '<ul>';
 			for($x = 0; $x < count($days); $x++){
-				$html .= '<li>'.$days[$x].'</li>';
+				$alldays .= '<li>'.$days[$x].'</li>';
 			}
-			$html .= '</ul>';
+			$alldays .= '</ul>';
 		}
 		
+		$html = str_replace('[[DAYS]]', $alldays, $html);
+		$html = str_replace('[[MONTH]]', $this->month, $html);
+		$html = str_replace('[[MONTH_NUM]]', $this->month_num, $html);
+		$html = str_replace('[[YEAR]]', $this->year, $html);
+
 		return $html;
 	}
 }
