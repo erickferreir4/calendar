@@ -10,6 +10,7 @@ namespace app\lib;
 class Calendar
 {
 	protected $matrix;
+	protected $weekdays;
 	protected $init_day;
 	protected $last_day;
 	protected $month;
@@ -26,6 +27,16 @@ class Calendar
 			['thu'],
 			['fri'],
 			['sat']
+		];
+
+		$this->weekdays = [
+			'sunday',
+			'monday',
+			'tuesday',
+			'wednesday',
+			'thurday',
+			'friday',
+			'saturday'
 		];
 	}
 
@@ -64,10 +75,17 @@ class Calendar
 		$html = file_get_contents(__DIR__ . '/../templates/ul.html');
 		$alldays = '';
 
-
 		foreach($this->matrix as $key => $days){
-			$alldays .= '<ul>';
+
+			$alldays .= '<ul data-day="'.$this->weekdays[$key].'" data-id="'.($key+1).'">';
+
 			for($x = 0; $x < count($days); $x++){
+
+				if($this->month_num == getdate()['mon'] && getdate()['mday'] === $days[$x]){
+					$alldays .= '<li class="is--active">'.$days[$x].'</li>';
+					continue;
+				}
+
 				$alldays .= '<li>'.$days[$x].'</li>';
 			}
 			$alldays .= '</ul>';
@@ -77,6 +95,18 @@ class Calendar
 		$html = str_replace('[[MONTH]]', $this->month, $html);
 		$html = str_replace('[[MONTH_NUM]]', $this->month_num, $html);
 		$html = str_replace('[[YEAR]]', $this->year, $html);
+
+		$html = str_replace('[[WEEKDAY]]', date("l"), $html);
+		$html = str_replace('[[MONTH_NOW]]', date("M j"), $html);
+
+
+
+
+
+
+
+
+
 
 		return $html;
 	}

@@ -1,6 +1,8 @@
 body {
 	background-color: #160A41;
 	color: #fff;
+	font-family: 'Lato', sans-serif;
+	letter-spacing: 1px;
 }
 
 .calendar {
@@ -13,11 +15,13 @@ body {
 .calendar--center {
 	background-color:#220F61;
 	width: max-content;
+	display: flex;
+}
+
+.calendar--center form{
 	padding: 40px;
 }
 
-form {
-}
 form div{
 	display: flex;
 }
@@ -25,13 +29,90 @@ form div{
 
 form div ul{
 	text-align: center;
-	min-height: 500px;
+	min-height: 600px;
 }
 
 form div ul li{
-	margin: 33px;
-	font-size: 18px;
+	margin: 25px;
 	text-transform: uppercase;
+	font-weight: 100;
+	font-size: 21px;
+
+	height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+form div ul li:first-of-type{
+	font-weight: 400;
+}
+form div ul li.is--active{
+    background-color: #E015ED;
+    border-radius: 100%;
+	font-weight: 400;
+}
+
+form span {
+	display: flex;
+    align-items: center;
+	margin-bottom: 40px;
 }
 form span button{
+	border-radius: 100%;
+    border: 1px solid #fff;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+form span button:last-of-type{
+	transform: rotate(-180deg);
+}
+form label{
+	font-size: 21px;
+	margin: 0 13px;
+	text-transform: uppercase;
+}
+form label i{
+	font-size: 17px;
+	margin-left: 7px;
+}
+
+
+
+
+.event {
+	background-color: #1C0A57;
+	padding: 45px;
+	display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.event span:first-of-type {
+	font-size: 21px;
+}
+
+.event span:first-of-type h4{
+	font-weight: 400;
+	margin-bottom: 10px;
+}
+
+.event span i{
+	font-size: 23px;
+    color: #755DD4;
+}
+
+
+.event button{
+	background-color: #E015ED;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 17px;
+    padding: 15px 80px;
+}
+
+
+

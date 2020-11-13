@@ -4,6 +4,7 @@ namespace app\traits;
 
 use app\interfaces\IAssets;
 use app\lib\Assets;
+use app\lib\AssetsCdn;
 
 /***
  *
@@ -58,6 +59,9 @@ trait TemplateTrait
 		$this->addCss('reset');
 		$this->addCss('general');
 
+
 		$this->addJs('general');
+		$this->setAssets( new AssetsCdn );
+		$this->addCss('https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&display=swap');
 	}
 }
