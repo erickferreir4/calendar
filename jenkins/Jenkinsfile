@@ -1,0 +1,31 @@
+pipeline {
+  agent any
+    
+  stages {
+	stage('Clone') {
+		steps {
+	  		sh 'rm -rf calend4r'
+        	sh 'git clone https://heroku:${HEROKU_TOKEN}@git.heroku.com/calend4r.git'
+		}
+	}
+
+	stage('Copy') {
+		steps {
+			sh 'cp -r app ./calend4r'
+		}
+	}
+
+	stage('Deliver') {
+		steps {
+			dir('./calend4r') {
+				sh 'git add .'
+				sh 'git commit -m"jenkins"'
+				sh 'git push'
+			}
+		}
+	}
+
+  }
+}
+
+
