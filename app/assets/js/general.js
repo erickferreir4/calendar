@@ -36,4 +36,42 @@ const date = () => {
 	next.addEventListener('click', closure_, false);
 }
 
+
+const event = () => {
+
+	let ul = doc.querySelectorAll('form div > ul');
+
+	
+	let closure_ = (ev) => {
+
+		let day = ev.target.innerText
+		let wday = ev.target.parentElement.dataset.day
+		let month = doc.querySelector('form > span label').dataset.month
+
+		let html = `<h4>${wday}</h4><p>${month} ${day}</p>`
+
+		doc.querySelector('.event > span:first-of-type')
+			.innerHTML = html;
+
+
+		doc.querySelectorAll('form div li')
+			.forEach( el => el.classList.remove('is--active') )
+
+		ev.target.classList.add('is--active')
+	}
+
+
+	ul.forEach( el => {
+		let days = el.querySelectorAll('li');
+
+		for(let x = 1; x < days.length; x++) {
+			days[x].addEventListener('click', closure_, false);
+		}
+	})
+
+}
+
+
+
 date();
+event();

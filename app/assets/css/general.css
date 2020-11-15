@@ -43,14 +43,20 @@ form div ul li{
     display: flex;
     align-items: center;
     justify-content: center;
+	cursor: pointer;
 }
 form div ul li:first-of-type{
 	font-weight: 400;
+	pointer-events: none;
 }
+
 form div ul li.is--active{
     background-color: #E015ED;
     border-radius: 100%;
 	font-weight: 400;
+}
+form div ul li.no--active{
+	pointer-events: none;
 }
 
 form span {
@@ -93,11 +99,13 @@ form label i{
 }
 .event span:first-of-type {
 	font-size: 21px;
+	text-align: center;
 }
 
 .event span:first-of-type h4{
 	font-weight: 400;
 	margin-bottom: 10px;
+	text-transform: capitalize;
 }
 
 .event span i{

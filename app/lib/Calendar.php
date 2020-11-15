@@ -56,7 +56,7 @@ class Calendar
 		}
 		//void column
 		for($x = 0; $x < $this->init_day; $x++){
-			$this->matrix[$x][] = '0';  
+			$this->matrix[$x][] = null;  
 		}
 
 		//fill column
@@ -86,6 +86,11 @@ class Calendar
 					continue;
 				}
 
+				if ($days[$x] === null) {
+					$alldays .= '<li class="no--active"></li>';
+					continue;
+				}
+
 				$alldays .= '<li>'.$days[$x].'</li>';
 			}
 			$alldays .= '</ul>';
@@ -98,7 +103,7 @@ class Calendar
 
 		$html = str_replace('[[WEEKDAY]]', date("l"), $html);
 		$html = str_replace('[[MONTH_NOW]]', date("M j"), $html);
-
+		$html = str_replace('[[MONTH_ABB]]', date('M', mktime(0, 0, 0, $this->month_num, 10)), $html);
 
 
 
