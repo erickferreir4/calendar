@@ -2,6 +2,8 @@
 
 namespace app\controller;
 
+use app\traits\TemplateTrait;
+
 /***
  *
  *	404 Controller
@@ -9,8 +11,11 @@ namespace app\controller;
  */
 class NotFoundController
 {
+	use TemplateTrait;
+
 	public function __construct()
 	{
-		
+		$this->setTitle('404');
+		$this->layout('NotFound');	
 	}
 }
