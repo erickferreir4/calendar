@@ -72,7 +72,7 @@ class Calendar
 
 	public function getCalendar()
 	{
-		$html = file_get_contents(__DIR__ . '/../templates/ul.html');
+		$html = file_get_contents(__DIR__ . '/../templates/calendar.html');
 		$alldays = '';
 
 		foreach($this->matrix as $key => $days){
@@ -104,14 +104,6 @@ class Calendar
 		$html = str_replace('[[WEEKDAY]]', date("l"), $html);
 		$html = str_replace('[[MONTH_NOW]]', date("M j"), $html);
 		$html = str_replace('[[MONTH_ABB]]', date('M', mktime(0, 0, 0, $this->month_num, 10)), $html);
-
-
-
-
-
-
-
-
 
 		return $html;
 	}

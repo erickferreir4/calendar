@@ -72,6 +72,41 @@ const event = () => {
 }
 
 
+const open = () => {
+	let button = doc.querySelector('.event > button')
+	let overlay = doc.querySelector('.calendar--event')
+
+	let closure_ = () => {
+		overlay.classList.add('is--active')
+	}
+
+	button.addEventListener('click', closure_, false)
+}
+
+
+const close = () => {
+	let button = doc.querySelector('#close')
+	let overlay = doc.querySelector('.calendar--event')
+
+	let closure_ = () => {
+		overlay.classList.remove('is--active')
+	}
+
+	button.addEventListener('click', closure_, false)
+
+	closure_ = (ev) => {
+		if(ev.target.classList.contains('calendar--event')) {
+			overlay.classList.remove('is--active')
+		}
+	}
+
+	overlay.addEventListener('click', closure_, false)
+}
+
+
+
 
 date();
 event();
+open();
+close();

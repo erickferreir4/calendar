@@ -76,12 +76,12 @@ form span button{
 form span button:last-of-type{
 	transform: rotate(-180deg);
 }
-form label{
+.calendar--center form label{
 	font-size: 21px;
 	margin: 0 13px;
 	text-transform: uppercase;
 }
-form label i{
+.calendar--center form label i{
 	font-size: 17px;
 	margin-left: 7px;
 }
@@ -120,6 +120,55 @@ form label i{
     color: #fff;
     font-size: 17px;
     padding: 15px 80px;
+}
+
+.calendar--event {
+	position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    align-items: center;
+    justify-content: center;
+	background-color:#00000059;
+	display:none;
+}
+.calendar--event.is--active {
+    display: flex;
+}
+
+.calendar--event form{
+	background-color: #1A1832;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 50px;
+    border-radius: 20px;
+	position: relative;
+}
+.calendar--event form > span{
+	position: absolute;
+    right: 0px;
+    top: -35px;
+	cursor: pointer;
+}
+
+.calendar--event form input:first-of-type{
+	margin: 45px 0 25px;
+    background-color: #282547;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+}
+
+.calendar--event form input:last-of-type{
+	background-color: #672CB9;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 17px;
+    padding: 10px 40px;
 }
 
 
