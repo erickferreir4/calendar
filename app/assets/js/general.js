@@ -71,7 +71,6 @@ const event = () => {
 
 }
 
-
 const open = () => {
 	let button = doc.querySelector('.event > button')
 	let overlay = doc.querySelector('.calendar--event')
@@ -82,7 +81,6 @@ const open = () => {
 
 	button.addEventListener('click', closure_, false)
 }
-
 
 const close = () => {
 	let button = doc.querySelector('#close')
