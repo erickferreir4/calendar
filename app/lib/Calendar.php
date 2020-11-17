@@ -2,6 +2,8 @@
 
 namespace app\lib;
 
+use app\model\EventModel;
+
 /**
  *
  * Calendar
@@ -75,23 +77,36 @@ class Calendar
 		$html = file_get_contents(__DIR__ . '/../templates/calendar.html');
 		$alldays = '';
 
+		$model = new EventModel;
+		$events = $model->select($this->year, $this->month_num);
+
 		foreach($this->matrix as $key => $days){
 
 			$alldays .= '<ul data-day="'.$this->weekdays[$key].'" data-id="'.($key+1).'">';
 
 			for($x = 0; $x < count($days); $x++){
 
+				//filter events
+				$data = '';
+				if( $events[$days[$x]] !== null ) {
+					foreach( $events[$days[$x]] as $key => $ev ) {
+						$data .= 'data-event'.$key.'="'.$ev.'" ';
+					}
+				}
+
+				//day active
 				if($this->month_num == getdate()['mon'] && getdate()['mday'] === $days[$x]){
-					$alldays .= '<li class="is--active">'.$days[$x].'</li>';
+					$alldays .= '<li class="is--active" '.$data.'>'.$days[$x].'<i></i><i></i><i></i></li>';
 					continue;
 				}
 
+				//fake days column
 				if ($days[$x] === null) {
 					$alldays .= '<li class="no--active"></li>';
 					continue;
 				}
 
-				$alldays .= '<li>'.$days[$x].'</li>';
+				$alldays .= '<li '.$data.'>'.$days[$x].'<i></i><i></i><i></i></li>';
 			}
 			$alldays .= '</ul>';
 		}

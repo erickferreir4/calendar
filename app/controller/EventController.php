@@ -23,11 +23,18 @@ class EventController
 	}
 
 	protected function add() {
+
 		$model = new EventModel;
 
+		$day = FilterSingleton::sanitize($_POST['day']);
+		$month = FilterSingleton::sanitize($_POST['month']);
+		$year = FilterSingleton::sanitize($_POST['year']);
 		$event = FilterSingleton::sanitize($_POST['event']);
 
-		var_dump($event);
+		$model->insert($day, $month, $year, $event);
+		unset($model);
+
+		header('Location: /');
 	}
 
 

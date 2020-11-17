@@ -39,20 +39,27 @@ const date = () => {
 
 const event = () => {
 
-	let ul = doc.querySelectorAll('form div > ul');
+	let ul = doc.querySelectorAll('.calendar--center > form div > ul');
 
 	
 	let closure_ = (ev) => {
 
 		let day = ev.target.innerText
 		let wday = ev.target.parentElement.dataset.day
-		let month = doc.querySelector('form > span label').dataset.month
+		let month = doc.querySelector('.calendar--center > form > span label').dataset.month
+		let year = doc.querySelector('#year').value
+		let month_num = doc.querySelector('#month').value
 
 		let html = `<h4>${wday}</h4><p>${month} ${day}</p>`
 
+
+		doc.querySelector('#event-day').value = day
+		doc.querySelector('#event-month').value = month_num
+		doc.querySelector('#event-year').value = year
+
+
 		doc.querySelector('.event > span:first-of-type')
 			.innerHTML = html;
-
 
 		doc.querySelectorAll('form div li')
 			.forEach( el => el.classList.remove('is--active') )
@@ -68,7 +75,6 @@ const event = () => {
 			days[x].addEventListener('click', closure_, false);
 		}
 	})
-
 }
 
 const open = () => {

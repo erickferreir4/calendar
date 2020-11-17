@@ -55,9 +55,41 @@ form div ul li.is--active{
     border-radius: 100%;
 	font-weight: 400;
 }
+
 form div ul li.no--active{
 	pointer-events: none;
 }
+
+form div ul li i{
+	display:none;
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 100%;
+    bottom: 0;
+	pointer-events: none;
+}
+form div ul li[data-event0]{
+	position: relative;
+}
+form div ul li[data-event0]:not(.is--active) i:nth-of-type(2){
+    background: #83F664;
+	display:block;
+}
+
+form div ul li[data-event1]:not(.is--active) i:last-of-type{
+	right: 10px;
+    background: #2CB6FE;
+	display:block;
+}
+
+form div ul li[data-event2]:not(.is--active) i:first-of-type{
+	left: 10px;
+    background: #FE5D2C;
+	display:block;
+}
+
+
 
 form span {
 	display: flex;
@@ -170,6 +202,11 @@ form span button:last-of-type{
     font-size: 17px;
     padding: 10px 40px;
 }
+
+
+
+
+
 
 
 

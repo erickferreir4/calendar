@@ -23,7 +23,6 @@ class IndexController
 
 	protected function renderCalendar()
 	{
-
 		$year = FilterSingleton::number($_POST['year']);
 		$month = FilterSingleton::number($_POST['month']); 
 
@@ -37,4 +36,20 @@ class IndexController
 
 		return $calendar->getCalendar();
 	}
+
+	protected function getDay()
+	{
+		return getdate()['mday'];
+	}
+
+	protected function getMonth()
+	{
+		return getdate()['mon'];
+	}
+
+	protected function getYear()
+	{
+		return getdate()['year'];
+	}
+
 }
