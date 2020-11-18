@@ -37,19 +37,4 @@ class IndexController
 		return $calendar->getCalendar();
 	}
 
-	protected function getDay()
-	{
-		return getdate()['mday'];
-	}
-
-	protected function getMonth()
-	{
-		return getdate()['mon'];
-	}
-
-	protected function getYear()
-	{
-		return getdate()['year'];
-	}
-
 }

@@ -52,11 +52,27 @@ const event = () => {
 
 		let html = `<h4>${wday}</h4><p>${month} ${day}</p>`
 
-
 		doc.querySelector('#event-day').value = day
 		doc.querySelector('#event-month').value = month_num
 		doc.querySelector('#event-year').value = year
 
+
+		//get events
+		let events = ''
+		for(let x = 0; true; x++) {
+			if(ev.target.dataset['event'+x] === undefined){
+				break;
+			}
+			let event = ev.target.dataset['event'+x]
+			events += `<li>${event}
+							<a href="/event/remove/${day}-${month_num}-${year}">
+								<img src="../assets/imgs/close.svg"/>
+							</a>
+						</li>`
+		}
+
+		doc.querySelector('#events')
+			.innerHTML = events.length ? events : '<li>No events for this day</li>'
 
 		doc.querySelector('.event > span:first-of-type')
 			.innerHTML = html;
@@ -75,6 +91,15 @@ const event = () => {
 			days[x].addEventListener('click', closure_, false);
 		}
 	})
+
+	try{
+		doc.querySelector('li.is--active')
+			.click();
+	}catch(e) {
+		var col = doc.querySelectorAll('.calendar--center form ul li.no--active').length
+		doc.querySelectorAll('.calendar--center form ul')[col].querySelector('li+li')
+			.click();
+	}
 }
 
 const open = () => {
@@ -106,6 +131,9 @@ const close = () => {
 
 	overlay.addEventListener('click', closure_, false)
 }
+
+
+
 
 
 

@@ -140,11 +140,29 @@ form span button:last-of-type{
 	text-transform: capitalize;
 }
 
-.event span i{
-	font-size: 23px;
-    color: #755DD4;
+.event ul {
+	width: 100%;
+	overflow: auto;
+    max-height: 450px;
 }
 
+.event ul li{
+	font-size: 23px;
+	color: #fff;
+	display: flex;
+    align-items: center;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+.event ul li a {
+	display: flex;
+    align-items: center;
+}
+.event ul li a img{
+	width: 20px;
+    fill: #fff;
+}
 
 .event button{
 	background-color: #E015ED;

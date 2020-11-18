@@ -116,8 +116,6 @@ class Calendar
 		$html = str_replace('[[MONTH_NUM]]', $this->month_num, $html);
 		$html = str_replace('[[YEAR]]', $this->year, $html);
 
-		$html = str_replace('[[WEEKDAY]]', date("l"), $html);
-		$html = str_replace('[[MONTH_NOW]]', date("M j"), $html);
 		$html = str_replace('[[MONTH_ABB]]', date('M', mktime(0, 0, 0, $this->month_num, 10)), $html);
 
 		return $html;
