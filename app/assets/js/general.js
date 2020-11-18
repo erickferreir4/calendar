@@ -65,7 +65,7 @@ const event = () => {
 			}
 			let event = ev.target.dataset['event'+x]
 			events += `<li>${event}
-							<a href="/event/remove/${day}-${month_num}-${year}">
+							<a href="/event/remove/${day}-${month_num}-${year}-${x}">
 								<img src="../assets/imgs/close.svg"/>
 							</a>
 						</li>`

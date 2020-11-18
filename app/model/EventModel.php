@@ -22,15 +22,28 @@ class EventModel
 			: [];
 	}
 
+	protected function save()
+	{
+		setcookie("events", json_encode($this->cookie), time()+3600, '/');
+	}
+
 	public function insert($day, $month, $year, $event)
 	{
 		$this->cookie[$year][$month][$day][] = $event;
 
-		setcookie("events", json_encode($this->cookie), time()+3600, '/');
+		$this->save();
 	}
 
 	public function select($year, $month)
 	{
 		return $this->cookie[$year][$month];
+	}
+
+	public function delete($year, $month, $day, $index)
+	{
+		unset($this->cookie[$year][$month][$day][$index]);
+		$this->cookie[$year][$month][$day] = array_values($this->cookie[$year][$month][$day]);
+
+		$this->save();
 	}
 }
