@@ -1,35 +1,14 @@
+# [CALENDAR](https://calend4r.herokuapp.com/)
 
-#	Calendar
+### Simple calendar where you can add events
 
+<br>
 
-## Calendar in php
-
-
-
-### Injecao de dependencia
+![Calendar](https://github.com/erickferreir4/color_pallet/blob/master/app/assets/imgs/calendar.png?raw=true)
 
 
-### Singleton
+### Docker
 
-
-### Facade
-
-
-### adapter
-
-
-### interface
-
-
-### trait
-
-
-### composicao
-
-
-### agregacao
-
-
-### associacao
-
-
+```
+docker-compose up --build
+```

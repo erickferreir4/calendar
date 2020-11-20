@@ -25,6 +25,7 @@ class IndexController
 		$this->layout('Index');	
 	}
 
+	// save date in cookie
 	protected function saveDate()
 	{
 		$this->year = FilterSingleton::number($_POST['year']);
@@ -46,14 +47,9 @@ class IndexController
 		}
 	}
 
+	// render in view
 	protected function renderCalendar()
 	{
-		//$year = FilterSingleton::number($_POST['year']);
-		//$month = FilterSingleton::number($_POST['month']); 
-
-		//$this->year = $this->year === 0 ? getdate()['year'] : $this->year;
-		//$this->month = $this->month === 0 ? getdate()['mon'] : $this->month;
-
 		$calendar = new Calendar();
 
 		$calendar->setDate(intval($this->month), intval($this->year));

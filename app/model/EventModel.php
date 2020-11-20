@@ -4,14 +4,12 @@ namespace app\model;
 
 use app\interfaces\IEvent;
 
-
 /**
  *
  *	Event Model
  *
  */
-//class EventModel implements IEvent
-class EventModel 
+class EventModel implements IEvent
 {
 	public $cookie;
 

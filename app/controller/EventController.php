@@ -22,6 +22,7 @@ class EventController
 		}
 	}
 
+	// add event
 	protected function add() 
 	{
 		$model = new EventModel;
@@ -39,6 +40,7 @@ class EventController
 		header('Location: /');
 	}
 
+	// remore event
 	protected function remove()
 	{
 		$model = new EventModel;

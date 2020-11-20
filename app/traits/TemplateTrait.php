@@ -59,7 +59,6 @@ trait TemplateTrait
 		$this->addCss('reset');
 		$this->addCss('general');
 
-
 		$this->addJs('general');
 		$this->setAssets( new AssetsCdn );
 		$this->addCss('https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&display=swap');
