@@ -52,11 +52,11 @@ class EventController
 		$index = FilterSingleton::number(explode('-', $date)[3]);
 
 		if( $day !== 0 && $month !== 0 && $year !== 0 ) {
-			//$model->delete($year, $month, $day, $index);
+			$model->delete($year, $month, $day, $index);
 		}
 
-		//unset($model);
-		//header('Location: /');
+		unset($model);
+		header('Location: /');
 	}
 
 }
