@@ -4,7 +4,7 @@
 
 <br>
 
-![Calendar](https://github.com/erickferreir4/color_pallet/blob/master/app/assets/imgs/calendar.png?raw=true)
+![Calendar](https://github.com/erickferreir4/calendar/blob/master/app/assets/imgs/calendar.png?raw=true)
 
 
 ### Docker
